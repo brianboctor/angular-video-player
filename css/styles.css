@@ -1,0 +1,7 @@
+.video-player .play-button,
+.video-player .pause-button,
+.video-player .rewind-button
+{
+	cursor: pointer;
+	text-decoration: underline;
+}

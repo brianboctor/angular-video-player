@@ -1,0 +1,30 @@
+<div class="video-player">
+  <video webkit-playsinline>
+    <source src="{{mp4}}" type="video/mp4">
+    <track label="Translation" kind="captions" srclang="es" src="{{translationSrc}}" default="default"></track>
+  </video>
+
+  <div class="time">{{currentTime}}</div>
+  <div class="play-button" ng-click="play()">Play</div>
+  <div class="pause-button" ng-click="pause()">Pause</div>
+  <div class="rewind-button" ng-click="rewind()">Rewind</div>
+
+  <div class="playback-speed">
+    Playback Speed: <input type="number" class="playback-speed" min="0.5" max="4" step="0.1" ng-model="playbackSpeed" ng-change="setPlaybackSpeed()">
+  </div>
+
+  <div class="volume">
+    Volume: <input type="number" class="volume-level" min="0" max="1" step="0.1" ng-model="volumeLevel" ng-change="setVolumeLevel()">
+  </div>
+
+  <div class="mute-container">
+    <input type="checkbox" id="chkMute" ng-checked="volumeLevel == 0" ng-change="toggleMute()" ng-model="muted">
+    <label for="chkMute">Mute</label>
+  </div>
+
+  <div class="subtitles-container">
+    <input type="checkbox" id="chkSubtitles{{$id}}"  ng-change="toggleSubtitles()" ng-model="showSubtitles">
+    <label for="chkSubtitles{{$id}}">Show Subtitles</label>
+  </div>
+  <input type="text" ng-model="startTime" ng-change="setStartTime()" placeholder="Jump To Time (Seconds)">
+</div>
